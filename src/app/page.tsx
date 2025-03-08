@@ -3,7 +3,7 @@
 import Image from "next/image";
 import styles from "./page.module.css";
 import Footer from "./components/Footer";
-import { FaCode, FaPalette, FaWordpress } from "react-icons/fa";
+import { FaCode,FaWordpress } from "react-icons/fa";
 import {
   FaHtml5,
   FaCss3Alt,
