@@ -199,8 +199,8 @@
   display: inline-block;
   padding: 1rem 2rem;
   background: transparent;
-  border: 2px solid #64ffda;
-  color: #64ffda;
+  border: 2px solid  #FF8533;
+  color:  #FF8533;
   font-size: 1rem;
   font-weight: 600;
   letter-spacing: 1px;
@@ -397,7 +397,7 @@
 
 .dot {
   fill: none;
-  stroke: #64ffda;
+  stroke: #FF8533;
   stroke-width: 2;
   animation: dotPulse 2s ease-in-out infinite;
   animation-delay: var(--delay);
@@ -423,24 +423,24 @@
 
 .floatingBox {
   fill: rgba(100, 255, 218, 0.1);
-  stroke: #64ffda;
+  stroke:  #FF8533;
   stroke-width: 1.5;
   stroke-dasharray: 4;
   animation: borderDash 20s linear infinite;
 }
 
 .boxDot {
-  fill: #64ffda;
+  fill:  #FF8533;
   animation: pulse 2s ease-in-out infinite;
 }
 
 .cursor {
-  fill: #64ffda;
+  fill:  #FF8533;
   animation: blink 1.2s step-end infinite;
 }
 
 .particle {
-  fill: #64ffda;
+  fill:  #FF8533;
   opacity: 0;
   animation: particleFloat 4s ease-in-out infinite;
   animation-delay: var(--delay);
@@ -618,34 +618,54 @@
 }
 
 .categorySection {
-  margin: 3rem 0;
+  margin: 2rem 0;
 }
 
 .categorySection h3 {
-  color: var(--primary-color);
-  font-size: 1.5rem;
+  color:  #FF8533;
   margin-bottom: 1.5rem;
-  text-align: left;
-  padding-left: 4rem;
+  font-size: 1.5rem;
 }
 
 .skillsGrid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
   gap: 2rem;
-  padding: 1rem 4rem;
-  justify-items: center;
-  align-items: start;
+  margin-top: 1rem;
+}
+
+.skillIcon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  transition: transform 0.3s ease;
+}
+
+.skillIcon:hover {
+  transform: translateY(-5px);
+}
+
+.skillIcon svg {
+  width: 40px;
+  height: 40px;
+  color:  #FF8533;
+}
+
+.skillIcon span {
+  font-size: 0.9rem;
+  color: #a8b2d1;
 }
 
 @media (max-width: 768px) {
-  .categorySection h3 {
-    padding-left: 2rem;
-  }
-  
   .skillsGrid {
-    padding: 1rem 2rem;
     grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    gap: 1rem;
+  }
+
+  .skillIcon svg {
+    width: 30px;
+    height: 30px;
   }
 }
 

@@ -16,12 +16,12 @@ import {
   FaDocker,
   FaCloud,
   FaAws,
-  FaApache,
   FaJava,
   FaAngular,
   FaJenkins,
   FaPhp,
 } from "react-icons/fa";
+import { SiApache } from "react-icons/si";
 import { TbBrandNextjs } from "react-icons/tb";
 import { useState, useEffect } from 'react';
 import { HiMenu, HiX } from 'react-icons/hi';
@@ -66,7 +66,7 @@ export default function Home() {
           </h1>
           <div className={styles.introText}>
             <p>
-              Hi, I&apos;m Vinicius, a passionate web developer with a focus on
+              Hi, I'm Vinicius, a passionate web developer with a focus on
               full-stack development.
             </p>
             <p>
@@ -302,6 +302,29 @@ export default function Home() {
           </div>
         </div>
 
+        {/* DevOps & Infrastructure Category */}
+        <div className={styles.categorySection}>
+          <h3>DevOps & Infrastructure</h3>
+          <div className={styles.skillsGrid}>
+            <div className={styles.skillIcon}>
+              <FaDocker />
+              <span>Docker</span>
+            </div>
+            <div className={styles.skillIcon}>
+              <SiApache />
+              <span>Apache</span>
+            </div>
+            <div className={styles.skillIcon}>
+              <FaJenkins />
+              <span>Jenkins</span>
+            </div>
+            <div className={styles.skillIcon}>
+              <FaAws />
+              <span>AWS</span>
+            </div>
+          </div>
+        </div>
+
         {/* Backend Category */}
         <div className={styles.categorySection}>
           <h3>Backend</h3>
@@ -333,29 +356,6 @@ export default function Home() {
             <div className={styles.skillIcon}>
               <FaDatabase />
               <span>PostgreSQL</span>
-            </div>
-          </div>
-        </div>
-
-        {/* DevOps Category */}
-        <div className={styles.categorySection}>
-          <h3>DevOps & Infrastructure</h3>
-          <div className={styles.skillsGrid}>
-            <div className={styles.skillIcon}>
-              <FaCloud />
-              <span>Kubernetes</span>
-            </div>
-            <div className={styles.skillIcon}>
-              <FaAws />
-              <span>AWS</span>
-            </div>
-            <div className={styles.skillIcon}>
-              <FaServer as FaApache />
-              <span>Apache</span>
-            </div>
-            <div className={styles.skillIcon}>
-              <FaJenkins />
-              <span>Jenkins</span>
             </div>
           </div>
         </div>
