@@ -390,7 +390,7 @@
   background: rgba(100, 255, 218, 0.2);
 }
 
-/* SVG Animation Styles */
+/* Enhanced SVG Animation Styles */
 .codeAnimation {
   width: 100%;
   height: auto;
@@ -398,59 +398,128 @@
 }
 
 .browserWindow {
-  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.3));
-  animation: windowPulse 4s ease-in-out infinite;
+  filter: drop-shadow(0 8px 25px rgba(0, 0, 0, 0.4));
+  animation: windowGlow 6s ease-in-out infinite;
 }
 
-.dot {
-  fill: none;
-  stroke: var(--primary-color);
-  stroke-width: 2;
-  animation: dotPulse 2s ease-in-out infinite;
-  animation-delay: var(--delay);
+.windowControl {
+  animation: controlPulse 3s ease-in-out infinite;
+  animation-delay: var(--delay, 0s);
 }
+
+.windowControl:nth-child(1) { --delay: 0s; }
+.windowControl:nth-child(2) { --delay: 0.5s; }
+.windowControl:nth-child(3) { --delay: 1s; }
 
 .addressBar {
   fill: rgba(255, 255, 255, 0.05);
-  animation: glowPulse 3s ease-in-out infinite;
+  animation: addressGlow 4s ease-in-out infinite;
 }
 
-.codeLine {
-  fill: rgba(100, 255, 218, 0.15);
-  animation: slideIn 0.6s ease-out forwards;
-  animation-delay: var(--delay);
-  opacity: 0;
-  transform: translateX(-20px);
+.urlText {
+  animation: textTypewriter 3s ease-in-out infinite;
 }
 
-.floatingGroup {
-  animation: float 4s ease-in-out infinite;
-  animation-delay: var(--delay);
+.activeTab, .inactiveTab {
+  animation: tabHover 5s ease-in-out infinite;
 }
 
-.floatingBox {
-  fill: rgba(100, 255, 218, 0.1);
-  stroke: var(--primary-color);
-  stroke-width: 1.5;
-  stroke-dasharray: 4;
-  animation: borderDash 20s linear infinite;
-}
-
-.boxDot {
-  fill: var(--primary-color);
+.tabClose {
   animation: pulse 2s ease-in-out infinite;
 }
 
-.cursor {
-  fill: var(--primary-color);
-  animation: blink 1.2s step-end infinite;
+.lineNumbers .lineNumber {
+  animation: lineNumberFade 4s ease-in-out infinite;
+  animation-delay: calc(var(--line-number, 0) * 0.1s);
 }
 
-.particle {
-  fill: var(--primary-color);
+/* Code Syntax Highlighting Animations */
+.codeKeyword {
+  animation: keywordGlow 3s ease-in-out infinite;
+  filter: drop-shadow(0 0 3px rgba(199, 146, 234, 0.3));
+}
+
+.codeFunction {
+  animation: functionPulse 4s ease-in-out infinite;
+  filter: drop-shadow(0 0 3px rgba(130, 170, 255, 0.3));
+}
+
+.codeString {
+  animation: stringShimmer 3s ease-in-out infinite;
+  filter: drop-shadow(0 0 3px rgba(195, 232, 141, 0.3));
+}
+
+.codeTag {
+  animation: tagPulse 3.5s ease-in-out infinite;
+  filter: drop-shadow(0 0 3px rgba(240, 113, 120, 0.3));
+}
+
+.codeAttribute {
+  animation: attributeGlow 4s ease-in-out infinite;
+  filter: drop-shadow(0 0 3px rgba(255, 203, 107, 0.3));
+}
+
+.codeText {
+  animation: textFade 5s ease-in-out infinite;
+}
+
+/* Terminal Animations */
+.terminal {
+  animation: terminalFlicker 4s ease-in-out infinite;
+  filter: drop-shadow(0 0 15px rgba(6, 182, 212, 0.2));
+}
+
+.terminalPrompt {
+  animation: promptBlink 2s ease-in-out infinite;
+}
+
+.terminalCommand {
+  animation: typewriter 3s steps(20) infinite;
+}
+
+.terminalOutput {
+  animation: outputFade 2s ease-in-out infinite;
+  animation-delay: var(--output-delay, 0s);
+}
+
+.terminalCursor {
+  animation: cursorBlink 1s step-end infinite;
+}
+
+/* Development Tools Animations */
+.reactLogo {
+  animation: reactSpin 10s linear infinite;
+  transform-origin: 150px 380px;
+}
+
+.tsLogo {
+  animation: logoFloat 4s ease-in-out infinite;
+}
+
+.gitIndicator {
+  animation: gitPulse 3s ease-in-out infinite;
+}
+
+.packageIcon {
+  animation: packageBounce 5s ease-in-out infinite;
+}
+
+/* Animated Particles */
+.animatedParticles .particle {
+  animation: particleFloat var(--duration, 4s) ease-in-out infinite;
+  animation-delay: var(--delay, 0s);
   opacity: 0;
-  animation: particleFloat 4s ease-in-out infinite;
-  animation-delay: var(--delay);
+}
+
+.animatedParticles .particle:nth-child(even) {
+  animation-name: particleFloatReverse;
+}
+
+/* Flow Lines */
+.flowLine {
+  stroke-dasharray: 10, 5;
+  animation: dashFlow 3s linear infinite;
+  animation-delay: var(--delay, 0s);
 }
 
 /* Keyframe Animations */
@@ -536,6 +605,160 @@
       calc(var(--random-y, 0) * -200px)
     );
   }
+}
+
+@keyframes windowGlow {
+  0%, 100% { 
+    filter: drop-shadow(0 8px 25px rgba(0, 0, 0, 0.4)); 
+  }
+  50% { 
+    filter: drop-shadow(0 12px 35px rgba(100, 255, 218, 0.2)); 
+  }
+}
+
+@keyframes controlPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(1.1); }
+}
+
+@keyframes addressGlow {
+  0%, 100% { 
+    filter: drop-shadow(0 0 5px rgba(100, 255, 218, 0.2)); 
+  }
+  50% { 
+    filter: drop-shadow(0 0 15px rgba(100, 255, 218, 0.4)); 
+  }
+}
+
+@keyframes textTypewriter {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0.7; }
+}
+
+@keyframes tabHover {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.8; }
+}
+
+@keyframes lineNumberFade {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+@keyframes keywordGlow {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.8; transform: scale(1.05); }
+}
+
+@keyframes functionPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; transform: translateY(-1px); }
+}
+
+@keyframes stringShimmer {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.8; }
+}
+
+@keyframes tagPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+@keyframes attributeGlow {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.8; }
+}
+
+@keyframes textFade {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.9; }
+}
+
+@keyframes terminalFlicker {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.95; }
+}
+
+@keyframes promptBlink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0.7; }
+}
+
+@keyframes typewriter {
+  0% { opacity: 0; }
+  50% { opacity: 1; }
+  100% { opacity: 0.8; }
+}
+
+@keyframes outputFade {
+  0% { opacity: 0; transform: translateY(5px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes cursorBlink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+@keyframes reactSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes logoFloat {
+  0%, 100% { 
+    transform: translateY(0) rotate(0deg); 
+  }
+  50% { 
+    transform: translateY(-10px) rotate(5deg); 
+  }
+}
+
+@keyframes gitPulse {
+  0%, 100% { 
+    transform: scale(1); 
+    opacity: 1; 
+  }
+  50% { 
+    transform: scale(1.1); 
+    opacity: 0.8; 
+  }
+}
+
+@keyframes packageBounce {
+  0%, 100% { 
+    transform: translateY(0); 
+  }
+  50% { 
+    transform: translateY(-5px); 
+  }
+}
+
+@keyframes particleFloatReverse {
+  0% {
+    opacity: 0;
+    transform: translate(0, 0) scale(0.5);
+  }
+  50% {
+    opacity: 1;
+    transform: translate(
+      calc((var(--random-x, 0.5) - 0.5) * -150px),
+      calc((var(--random-y, 0.5) - 0.5) * 80px)
+    ) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(
+      calc((var(--random-x, 0.5) - 0.5) * -300px),
+      calc((var(--random-y, 0.5) - 0.5) * 160px)
+    ) scale(0.5);
+  }
+}
+
+@keyframes dashFlow {
+  0% { stroke-dashoffset: 0; }
+  100% { stroke-dashoffset: -50; }
 }
 
 /* Add smooth transitions for hover effects */
@@ -789,4 +1012,21 @@
   .container {
     padding: 0 1rem;
   }
+}
+
+/* Hover Effects for Animation Container */
+.animationContainer:hover .browserWindow {
+  filter: drop-shadow(0 15px 40px rgba(100, 255, 218, 0.3));
+}
+
+.animationContainer:hover .terminal {
+  filter: drop-shadow(0 0 25px rgba(6, 182, 212, 0.4));
+}
+
+.animationContainer:hover .reactLogo {
+  animation-duration: 2s;
+}
+
+.animationContainer:hover .animatedParticles .particle {
+  animation-duration: 2s;
 }

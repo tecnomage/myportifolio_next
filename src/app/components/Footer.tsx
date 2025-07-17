@@ -26,7 +26,7 @@ export default function Footer() {
             <FaLinkedin className={styles.icon} />
           </a>
           <a 
-            href="mailto:your.email@example.com"
+            href="mailto:vinicius.bragatrt@gmail.com"
             aria-label="Email"
           >
             <MdEmail className={styles.icon} />
